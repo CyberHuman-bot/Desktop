@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philades.gov</title>
+    <link rel="stylesheet" href="leaflet/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 210vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow: hidden;
+        }
+        #flag {
+            background-color: lightcoral;
+            border: none;
+            padding: 10px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .language-switcher:hover {
+            background-color: #555;
+        }
+        #map {
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: 2px solid #353535;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher" onclick="switchLanguage()">التحويل إلى اللغة العربية</div>
+
+    <div class="container" id="content-container">
+        <div id="flag">
+            <img src="Philades.png" alt="Flag of Philades">
+        </div>
+        <p id="intro-text">
+            Philades is a newly established country, born just hours ago but already brimming with promise and ambition. As a young nation, it is a blank canvas, filled with the potential to craft a unique identity. Located in a picturesque region where sweeping landscapes meet modern aspirations, Philades is determined to carve out a place on the global stage. Its founders are driven by a vision to create a society that thrives on creativity, freedom, and collaboration, offering a fresh perspective on what a country can be.
+        </p>
+        <p id="city-text">
+            In its early stages, the capital of Philades, Aravelle, is rapidly taking shape, with sleek, innovative architecture and a central hub for commerce, culture, and governance. The city is designed to be a living experiment in social and technological integration, blending sustainable practices with cutting-edge infrastructure. From green spaces to advanced transportation systems, Aravelle represents the future of urban living. Despite being newly formed, the people of Philades are already crafting their collective values, with an emphasis on equality, innovation, and a deep respect for their environment.
+        </p>
+        <p id="future-text">
+            The future of Philades looks incredibly promising, with its leaders focused on creating a diverse and sustainable economy. The country is in the process of establishing a robust educational system that fosters creativity and critical thinking, while also laying the groundwork for research in new technologies and industries. Though it’s still in its infancy, Philades is quickly becoming a beacon of hope for those seeking to build a new kind of society—one where opportunities are limitless, and the world can watch as this young nation blossoms into something truly unique.
+        </p>
+        <div id="map"></div>
+        <p>Places:</p>
+        <p>Philades National Garden</p><br>
+        <p>Markets:</p>
+        <p>Villa Bazzaar</p><br>
+        <p>Hotels:</p>
+        <p>Philades International Hotel</p>
+    </div>
+
+    <script src="leaflet/dist/leaflet.js"></script>
+    <script>
+        let isArabic = false;
+
+        function switchLanguage() {
+            const introText = document.getElementById('intro-text');
+            const cityText = document.getElementById('city-text');
+            const futureText = document.getElementById('future-text');
+            const switcher = document.querySelector('.language-switcher');
+
+            if (!isArabic) {
+                // Change the language to Arabic
+                introText.innerHTML = `
+                    فيلادس هي دولة تم إنشاؤها حديثًا، وُلدت منذ ساعات قليلة لكنها مليئة بالوعود والطموحات. كدولة شابة، هي لوحة فارغة، مليئة بإمكانات بناء هوية فريدة. تقع في منطقة ذات مناظر طبيعية خلابة حيث تلتقي المناظر الطبيعية الشاسعة مع الطموحات الحديثة. فيلادس عازمة على إيجاد مكان لها على الساحة العالمية. مؤسسوها مدفوعون برؤية لبناء مجتمع يزدهر بالإبداع والحرية والتعاون، ويقدم منظورًا جديدًا لما يمكن أن تكون عليه الدولة.
+                `;
+                cityText.innerHTML = `
+                    في مراحله الأولى، تتشكل عاصمة فيلادس، أرافيل، بسرعة، مع هندسة معمارية مبتكرة ومركز تجاري وثقافي وحكومي. المدينة مصممة لتكون تجربة حية في التكامل الاجتماعي والتكنولوجي، تمزج بين الممارسات المستدامة والبنية التحتية المتطورة. من المساحات الخضراء إلى أنظمة النقل المتقدمة، تمثل أرافيل مستقبل الحياة الحضرية. على الرغم من كونها حديثة التكوين، بدأ شعب فيلادس في صياغة قيمهم الجماعية، مع التركيز على المساواة والابتكار والاحترام العميق للبيئة.
+                `;
+                futureText.innerHTML = `
+                    يبدو مستقبل فيلادس واعدًا للغاية، حيث يركز قادتها على بناء اقتصاد متنوع ومستدام. تعمل الدولة على إنشاء نظام تعليمي قوي يعزز الإبداع والتفكير النقدي، بينما تمهد الطريق للبحث في تقنيات وصناعات جديدة. على الرغم من أنها لا تزال في مهدها، أصبحت فيلادس بسرعة منارة للأمل لأولئك الذين يسعون لبناء نوع جديد من المجتمع - حيث الفرص غير محدودة، ويمكن للعالم أن يشاهد هذا البلد الشاب وهو يزدهر ليصبح شيئًا فريدًا حقًا.
+                `;
+                switcher.innerHTML = 'Switch to English';
+            } else {
+                // Change the language to English
+                introText.innerHTML = `
+                    Philades is a newly established country, born just hours ago but already brimming with promise and ambition. As a young nation, it is a blank canvas, filled with the potential to craft a unique identity. Located in a picturesque region where sweeping landscapes meet modern aspirations, Philades is determined to carve out a place on the global stage. Its founders are driven by a vision to create a society that thrives on creativity, freedom, and collaboration, offering a fresh perspective on what a country can be.
+                `;
+                cityText.innerHTML = `
+                    In its early stages, the capital of Philades, Aravelle, is rapidly taking shape, with sleek, innovative architecture and a central hub for commerce, culture, and governance. The city is designed to be a living experiment in social and technological integration, blending sustainable practices with cutting-edge infrastructure. From green spaces to advanced transportation systems, Aravelle represents the future of urban living. Despite being newly formed, the people of Philades are already crafting their collective values, with an emphasis on equality, innovation, and a deep respect for their environment.
+                `;
+                futureText.innerHTML = `
+                    The future of Philades looks incredibly promising, with its leaders focused on creating a diverse and sustainable economy. The country is in the process of establishing a robust educational system that fosters creativity and critical thinking, while also laying the groundwork for research in new technologies and industries. Though it’s still in its infancy, Philades is quickly becoming a beacon of hope for those seeking to build a new kind of society—one where opportunities are limitless, and the world can watch as this young nation blossoms into something truly unique.
+                `;
+                switcher.innerHTML = 'التحويل إلى اللغة العربية';
+            }
+
+            isArabic = !isArabic; // Toggle the language state
+        }
+
+        // Initialize map
+        const map = L.map('map').setView([0, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        
+        // Placeholder for capital
+        // Placeholder for Villa Bazar in Avro City, Duhok
+        const villaBazar = L.marker([36.867, 42.988]).addTo(map)
+            .bindPopup("Welcome to Philades!");
+    </script>
+</body>
+</html>

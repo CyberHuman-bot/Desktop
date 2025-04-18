@@ -1,0 +1,48 @@
+btn {
+    text="Click Me"
+    color="green"
+    TC="black"
+    link="https://example.com"
+}
+
+txt {
+    text="This is a long label that should wrap correctly if it's too long for one line. Here we are testing the text wrapping."
+    TC="black"
+    size="16"
+    border-radius="5"
+}
+
+input {
+    placeholder="Enter something"
+    color="white"
+    border-radius="5"
+}
+
+chk {
+    text="Accept Terms and Conditions"
+    border-radius="5"
+}
+
+radio {
+    options="Option 1,Option 2,Option 3"
+    selected="Option 2"
+}
+
+frame {
+    title="This is a Frame"
+    border-radius="5"
+}
+
+list {
+    options="Option A,Option B,Option C"
+}
+
+slider {
+    min="0"
+    max="100000000000000000000000000"
+}
+
+img {
+    src="path_to_image.jpg"
+    alt="An example image"
+}

@@ -1,0 +1,476 @@
+btn {
+    text="Click Me"
+    color="lightblue"
+    TC="black"
+    border-radius="10"
+    link="https://example.com"
+    size="18"
+    width="150"
+    height="50"
+}
+
+txt {
+    text="Welcome to the YF App! This is a simple app to demonstrate YF features."
+    TC="black"
+    size="18"
+    border-radius="5"
+    width="500"
+    align="center"
+}
+
+input {
+    placeholder="Enter your name"
+    color="lightgrey"
+    border-radius="5"
+    width="200"
+    height="30"
+}
+
+chk {
+    text="I agree to the terms and conditions"
+    border-radius="5"
+}
+
+radio {
+    options="Option 1,Option 2,Option 3,Option 4,Option 5"
+    selected="Option 2"
+    size="16"
+}
+
+frame {
+    title="User Details"
+    border-radius="10"
+    width="500"
+    height="400"
+}
+
+list {
+    options="Option A,Option B,Option C,Option D,Option E"
+    size="16"
+}
+
+slider {
+    min="0"
+    max="100"
+    value="50"
+    orient="horizontal"
+    width="400"
+    height="50"
+}
+
+img {
+    src="path_to_image.jpg"
+    alt="Example Image"
+    width="200"
+    height="200"
+}
+
+label {
+    text="This is a label"
+    TC="green"
+    size="14"
+    width="300"
+    height="40"
+}
+
+icon {
+    src="path_to_icon.png"
+    alt="App Icon"
+    size="50"
+}
+
+dropdown {
+    options="Option 1,Option 2,Option 3"
+    selected="Option 1"
+    width="200"
+}
+
+textarea {
+    placeholder="Enter long text here"
+    color="lightyellow"
+    width="300"
+    height="100"
+}
+
+progress {
+    value="70"
+    max="100"
+    color="green"
+    width="400"
+}
+
+nav {
+    items="Home, About, Contact, Services"
+    background="blue"
+}
+
+tabs {
+    tabs="Tab 1,Tab 2,Tab 3"
+    selected="Tab 1"
+}
+
+accordion {
+    items="Section 1,Section 2,Section 3"
+    default_open="Section 1"
+}
+
+tooltip {
+    text="This is a tooltip"
+    target="btn"
+    background="gray"
+    color="white"
+}
+
+modal {
+    title="Modal Window"
+    text="This is a modal message"
+    button="Close"
+}
+
+popup {
+    title="Popup Message"
+    text="Here is a popup with additional info"
+}
+
+imagegallery {
+    images="image1.jpg,image2.jpg,image3.jpg"
+    alt="Gallery Images"
+}
+
+map {
+    location="New York, USA"
+    zoom="10"
+    width="500"
+    height="300"
+}
+
+chart {
+    type="bar"
+    data="10,20,30,40,50"
+    labels="January,February,March,April,May"
+}
+
+video {
+    src="video.mp4"
+    width="600"
+    height="400"
+    controls="true"
+}
+
+audio {
+    src="audio.mp3"
+    controls="true"
+}
+
+rating {
+    value="4"
+    max="5"
+}
+
+calendar {
+    events="Event 1,Event 2,Event 3"
+    selected="Event 1"
+}
+
+countdown {
+    time="2025-01-01 00:00:00"
+    color="red"
+}
+
+clock {
+    format="HH:MM:SS"
+    size="24"
+}
+
+switch {
+    state="on"
+    color="green"
+}
+
+badge {
+    text="New"
+    color="red"
+    size="20"
+}
+
+tooltip {
+    text="This is a helpful tooltip"
+    target="frame"
+    background="yellow"
+    color="black"
+}
+
+breadcrumb {
+    items="Home > About > Contact"
+    separator=">"
+}
+
+carousel {
+    images="img1.jpg,img2.jpg,img3.jpg"
+    alt="Image Carousel"
+}
+
+badge {
+    text="3 New"
+    color="blue"
+}
+
+quote {
+    text="This is a famous quote."
+    author="Author Name"
+    size="18"
+    color="gray"
+}
+
+price {
+    amount="199.99"
+    currency="USD"
+    format="currency"
+}
+
+searchbox {
+    placeholder="Search for items"
+    color="lightgrey"
+    width="300"
+    height="30"
+}
+
+social {
+    platforms="Facebook,Twitter,Instagram"
+    links="https://facebook.com,https://twitter.com,https://instagram.com"
+}
+
+header {
+    text="Welcome to the YF App!"
+    color="blue"
+    size="24"
+    height="60"
+}
+
+footer {
+    text="YF Application Footer"
+    color="gray"
+    size="14"
+    height="40"
+}
+
+contactform {
+    fields="Name,Email,Message"
+    submit="Send Message"
+}
+
+ratingstar {
+    value="4"
+    max="5"
+}
+
+listgroup {
+    items="Item 1,Item 2,Item 3,Item 4"
+}
+
+table {
+    rows="Name,Age,Location"
+    data="John,25,USA;Jane,30,Canada;Joe,28,UK"
+}
+
+field {
+    label="Username"
+    placeholder="Enter your username"
+    color="lightgray"
+}
+
+alert {
+    text="This is an alert message."
+    type="info"
+}
+
+chip {
+    label="New"
+    color="purple"
+}
+
+iconbutton {
+    icon="home"
+    color="blue"
+    size="30"
+}
+
+listitem {
+    text="Item A"
+    link="https://example.com"
+}
+
+icontext {
+    icon="user"
+    text="John Doe"
+}
+
+stepper {
+    steps="Step 1,Step 2,Step 3"
+    selected="Step 1"
+}
+
+divider {
+    orientation="horizontal"
+    color="gray"
+}
+
+accordionitem {
+    title="Section Title"
+    content="This is the content of the section."
+}
+
+timeline {
+    events="Event 1, Event 2, Event 3"
+}
+
+tabpanel {
+    tabs="Tab A, Tab B, Tab C"
+}
+
+chartbar {
+    data="100,200,300,400"
+    labels="January,February,March,April"
+}
+
+chartline {
+    data="50,60,70,80"
+    labels="January,February,March,April"
+}
+
+chartpie {
+    data="10,20,30,40"
+    labels="A,B,C,D"
+}
+
+alertbox {
+    type="error"
+    text="An error occurred"
+}
+
+colorpicker {
+    color="red"
+    size="30"
+}
+
+imageupload {
+    accept="image/*"
+    button="Upload Image"
+}
+
+toggle {
+    state="off"
+    color="gray"
+}
+
+togglebutton {
+    state="off"
+    color="blue"
+}
+
+profile {
+    name="John Doe"
+    bio="Lorem ipsum dolor sit amet"
+    picture="profile.jpg"
+}
+
+commentbox {
+    placeholder="Add a comment"
+    color="lightgray"
+    width="400"
+    height="100"
+}
+
+badge {
+    text="4 New"
+    color="green"
+    size="18"
+}
+
+embed {
+    src="embed_url"
+    width="500"
+    height="300"
+}
+
+alert {
+    text="This is a success message!"
+    type="success"
+}
+
+modalpopup {
+    title="Modal Title"
+    message="Modal content goes here."
+}
+
+textbutton {
+    text="Submit"
+    color="lightgreen"
+    border-radius="5"
+}
+
+calendarwidget {
+    events="Event A, Event B"
+}
+
+inputfield {
+    label="Email"
+    placeholder="Enter your email"
+    color="lightblue"
+    border-radius="5"
+}
+
+accordionpanel {
+    title="FAQ"
+    content="Frequently Asked Questions"
+}
+
+headerbar {
+    title="Application Header"
+    background="blue"
+}
+
+footerbar {
+    text="Footer Text"
+    background="black"
+}
+
+dividerline {
+    color="black"
+}
+
+expandablepanel {
+    title="Expandable Panel"
+    content="Panel Content"
+}
+
+progressbar {
+    value="80"
+    max="100"
+    color="green"
+}
+
+iconmenu {
+    items="Item 1, Item 2, Item 3"
+}
+
+profilecard {
+    name="Jane Smith"
+    bio="Web Developer"
+    image="profile2.jpg"
+}
+
+post {
+    title="Post Title"
+    content="This is the content of the post."
+}
+
+comment {
+    user="John"
+    text="This is a comment."
+}
+
+actionlink {
+    text="Click here for more"
+    link="https://more-info.com"
+}

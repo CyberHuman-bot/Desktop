@@ -1,0 +1,6 @@
+style="mntystrtmnu"
+startmenu{
+    apps{
+        qwertyuiop="fileicon"
+    }
+}

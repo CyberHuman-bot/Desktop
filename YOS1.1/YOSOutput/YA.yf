@@ -1,0 +1,8 @@
+btn{
+    link="www.google.com"
+    color="green"
+    TC="red"
+}
+ratingstar{
+    color="red"
+}

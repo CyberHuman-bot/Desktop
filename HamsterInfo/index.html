@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: darkgreen;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            flex-direction: column;
+        }
+        .lgn {
+            background-color: white;
+            border-radius: 60px;
+            width: 70%;
+            max-width: 400px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        input {
+            width: 64%;
+            padding: 13px;
+            margin: 10px 0;
+            border-radius: 30px;
+            border: 1px solid gainsboro;
+            font-size: 1rem;
+        }
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+        p {
+            color: red;
+        }
+        h2 {
+            color: #000;
+        }
+        .footer {
+            margin-top: 20px;
+            color: white;
+        }
+        .TOU{
+            color: #000;
+            text-decoration: underline;
+            transition: 0.3s ease;
+        }
+        .TOU:hover{
+            background-color: green;
+            transition: 0.3s ease-in-out;
+            color: white;
+            padding: 4px;
+            border-radius: 3px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+
+    <form class="lgn" onsubmit="handleSubmit(event)">
+        <h2>Login to the Integrated Learning System(ILS)</h2>
+        <input type="text" id="Firstname" placeholder="First Name" required>
+        <input type="text" id="Lastname" placeholder="Last Name" required>
+        <input type="password" id="StudentNumber" placeholder="Student Number" required><br>
+        <button type="submit">Submit</button>
+        <button type="reset" onclick="Reset()">Reset</button>
+        <p id="errorMessage"></p>
+        <a class="TOU" href="https://www.sabis.net/downloads/SABIS-Terms-and-Conditions-May-2018.pdf">Terms Of Use</a>
+    </form>
+
+    <p class="footer">SABIS® | All Rights Reserved</p>
+
+    <script>
+        // JSON database with 22 students
+        var students = [
+            {"firstname": "Yaman", "lastname": "Abdulmunem", "studentNumber": "564"},
+            {"firstname": "Zain", "lastname": "Tameem", "studentNumber": "176"},
+            {"firstname": "Ayad", "lastname": "Mohammad", "studentNumber": "245"},
+            {"firstname": "Rawan", "lastname": "Abdulrahman", "studentNumber": "181"},
+            {"firstname": "Serefan", "lastname": "IDK", "studentNumber": "123"},
+            {"firstname": "Mervan", "lastname": "Rashid", "studentNumber": "77889"},
+            {"firstname": "Noor", "lastname": "Salem", "studentNumber": "99100"},
+            {"firstname": "Mariam", "lastname": "Fares", "studentNumber": "10112"},
+            {"firstname": "Jamal", "lastname": "Dawood", "studentNumber": "13141"},
+            {"firstname": "Zain", "lastname": "Kamal", "studentNumber": "15161"},
+            {"firstname": "Farah", "lastname": "Yousif", "studentNumber": "17181"},
+            {"firstname": "Ahmad", "lastname": "Jalal", "studentNumber": "19191"},
+            {"firstname": "Hasan", "lastname": "Nabil", "studentNumber": "21222"},
+            {"firstname": "Reem", "lastname": "Tariq", "studentNumber": "23242"},
+            {"firstname": "Tamer", "lastname": "Sami", "studentNumber": "25262"},
+            {"firstname": "Waleed", "lastname": "Nasir", "studentNumber": "27282"},
+            {"firstname": "Hiba", "lastname": "Saad", "studentNumber": "29292"},
+            {"firstname": "Salman", "lastname": "Bilal", "studentNumber": "31312"},
+            {"firstname": "Amani", "lastname": "Mousa", "studentNumber": "33332"},
+            {"firstname": "Karim", "lastname": "Adnan", "studentNumber": "35352"},
+            {"firstname": "Rania", "lastname": "Bashir", "studentNumber": "37372"},
+            {"firstname": "Azhang", "lastname": "Gebrael", "studentNumber": "146"}
+        ];
+
+        // Function to reset inputs
+        function Reset() {
+            document.getElementById("Firstname").value = "";
+            document.getElementById("Lastname").value = "";
+            document.getElementById("StudentNumber").value = "";
+            document.getElementById("Firstname").focus();
+        }
+
+        // Function to handle login
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const firstname = document.getElementById('Firstname').value.trim();
+            const lastname = document.getElementById('Lastname').value.trim();
+            const studentNumber = document.getElementById('StudentNumber').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (!firstname || !lastname || !studentNumber) {
+                errorMessage.textContent = "All fields are required!";
+                return;
+            }
+
+            errorMessage.textContent = "";
+
+            // Find matching student in the array
+            const user = students.find(student =>
+                student.firstname.toLowerCase() === firstname.toLowerCase() &&
+                student.lastname.toLowerCase() === lastname.toLowerCase() &&
+                student.studentNumber === studentNumber
+            );
+
+            if (user) {
+                // Redirect to exam.aspx with query parameters
+                window.location.href = "http://192.168.63.29:7888/Student/Pages/StudentMain.aspx";
+            } else {
+                errorMessage.textContent = "Invalid login credentials. Please try again.";
+            }
+        }
+    </script>
+
+</body>
+</html>

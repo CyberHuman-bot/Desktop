@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to YOS, your ultimate destination for tech updates, services, and solutions.">
+    <meta name="keywords" content="YOS, technology, operating system, tech solutions, services, news">
+    <title>YOS - Contact, Services, News</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+            transition: all 0.5s ease;
+        }
+
+        /* Header */
+        @keyframes rect {
+            0% { background: linear-gradient(45deg, #63ff9c, #c1c8ff); }
+            50% { background: linear-gradient(100deg, #63ff9c, #c1c8ff); }
+            100% { background: linear-gradient(45deg, #63ff9c, #c1c8ff); }
+        }
+
+        header {
+            animation: rect 5s infinite;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #444;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #6c63ff;
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 1.5rem;
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 900px;
+        }
+
+        #contact, #services, #news {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact {
+            background-color: #f5f5f5;
+        }
+
+        #services {
+            background: linear-gradient(45deg, #c1e1c1, #e8f8e8);
+        }
+
+        #news {
+            background: linear-gradient(45deg, #ffe5e5, #fff8f8);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        ul li {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Contact Form */
+        form {
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: left;
+            background: white;
+            padding: 2rem;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        ::placeholder {
+            color: #999;
+        }
+
+        form button {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #574bcc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Media Query */
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 0 1rem;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to YOS</h1>
+        <p>Your ultimate destination for tech updates and solutions</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#contact" aria-label="Contact Us">Contact Us</a></li>
+            <li><a href="#services" aria-label="Our Services">Services</a></li>
+            <li><a href="#news" aria-label="Latest News">News</a></li>
+        </ul>
+    </nav>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or feedback? Let us know!</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" rows="4" placeholder="Enter your message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>We provide a wide range of tech solutions to help you excel:</p>
+        <ul>
+            <li>Custom Operating System Development</li>
+            <li>Application Design and Development</li>
+            <li>Technology Consultation Services</li>
+        </ul>
+    </section>
+
+    <section id="news">
+        <h2>Latest News</h2>
+        <p>Check out what's new in the tech world:</p>
+        <article>
+            <h3>New OS Features Announced</h3>
+            <p>Discover the groundbreaking capabilities of YOS in our latest update.</p>
+        </article>
+        <article>
+            <h3>Upcoming Webinar</h3>
+            <p>Join us for an exclusive webinar on custom OS design this month. Register now!</p>
+        </article>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 YOS. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Highlight active nav link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Account Status</title>
+    <style>
+                body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 10px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            background-color: #f4f4f9;
+            font-weight: 100;
+        }
+        .container {
+            text-align: center;
+            background-color: #1d1d1d;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            height: fit-content;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: start;
+        }
+        .container h1 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #f5c507;
+            font-weight: 100;
+        }
+        .container p {
+            font-size: 18px;
+            color: rgb(235, 81, 10);
+            text-align: center;
+            font-weight: 100;
+        }
+        .red {
+            background-color: red;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: left;
+            color: #ffffff;
+            font-weight: 100;
+        }
+        input {
+            text-align: center;
+            border: rgba(0, 0, 0, 0.2) 1px solid;
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .BATPA {
+            background-color: red;
+            color: #ffffff;
+            text-align: left;
+            font-weight: 100;
+        }
+        input[readonly] {
+            background-color: transparent;
+            border: none;
+            font-weight: 100;
+        }
+        .stat {
+            margin-top: 10px;
+            text-align: start;
+            color: #fff;
+        }
+        .logo {
+            margin-right: 70px;
+            width: 25%;
+            height: 75%;
+            align-self: flex-start;
+        }
+        .status-input {
+            display: inline-block;
+            background-color: #495057;
+            color: #fff;
+            padding: 0px;
+            border-radius: 4px;
+            margin: 0 5px;
+            width: fit-content;
+            text-align: right;
+        }
+        button {
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #04a209;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+        button:hover {
+            background-color: #18971f;
+        }
+
+        .inline-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            justify-content: center;
+        }
+        
+        #pin {
+            width: 200px;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            .inline-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            #pin, button {
+                width: 100%;
+            }
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.7s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 40%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-container img {
+            flex-shrink: 0;
+        }
+
+        #active-status-display {
+            background-color: #04a209;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: 30%;
+            margin-bottom: 5%;
+        }
+
+        #expire-status-display {
+            background-color: yellow;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: 30%;
+            margin-bottom: 2%;
+        }
+        select{
+            background-color: red;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inline-container">
+            <img src="lad-removebg-preview.png" style="width: 200px;height: 75px;justify-items: right;">
+            <!-- Dropdown for language selection -->
+            <select id="language-select">
+                <option value="engl">English</option>
+                <option value="arab">Arabic</option>
+                <option value="kuba">Kurdish Badeni</option>
+                <option value="kuso">Kurdish Sorani</option>
+            </select>
+        </div>
+        <div class="bal">
+            <div class="stat">
+                <a id="account-status">Account Status :</a>
+                <input type="text" id="active-status-display" class="status-input" value="Active" readonly>
+                <input type="text" id="expire-status-display" class="status-input" value="Expired" readonly style="display:none;">
+            </div>
+        </div>
+        <div class="red">
+            <input type="text" class="BATPA" id="token-display" placeholder="Token will appear here" readonly hidden>
+            <input type="text" class="BATPA" id="username-display" placeholder="Fetching user info..." readonly>
+            <input type="text" class="BATPA" id="remaining-days-display" placeholder="Fetching remaining days..." readonly>
+            <input type="text" class="BATPA" id="profile-display" placeholder="Fetching profile..." readonly>
+        </div>
+        <p><b id="enter-pin-text">Enter the PIN code, then click Recharge:</b></p>
+        <div class="inline-container">
+            <input type="number" id="pin" name="pin" required placeholder="Enter PIN">
+            <button id="redeemButton">Recharge</button>
+        </div>
+        <div class="slider">
+            <div class="slides">
+                <div class="slide"><img src="logo.png" alt="Logo"></div>
+                <div class="slide"><img src="a.jpg" alt="Image 1"></div>
+                <div class="slide"><img src="logo.png" alt="Image 2"></div>
+                <div class="slide"><img src="c.jpg" alt="Image 3"></div>
+                <div class="slide"><img src="logo.png" alt="Image 4"></div>
+            </div>
+        </div>
+        <p>&copy;Speedlink | All Rights Reserved 2024</p>
+    </div><br>
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelector('.slides');
+        const slideCount = document.querySelectorAll('.slide').length;
+
+        function showNextSlide() {
+            currentIndex = (currentIndex + 1) % slideCount;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        let slideInterval = setInterval(showNextSlide, 3000);
+
+        document.querySelector('.slider').addEventListener('mouseenter', function() {
+            clearInterval(slideInterval);
+        });
+
+        document.querySelector('.slider').addEventListener('mouseleave', function() {
+            slideInterval = setInterval(showNextSlide, 3000);
+        });
+
+        async function fetchToken() {
+            try {
+                const response = await fetch("http://45.81.145.100/user/api/index.php/api/auth/autoLogin");
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                const data = await response.json();
+                token = data.token || "No token found";
+                document.getElementById("token-display").value = token;
+                fetchUserData();
+                fetchRemainingDays();
+                fetchProfile();
+            } catch (error) {
+                console.error("Error fetching token:", error.message);
+                document.getElementById("token-display").value = `Error: ${error.message}`;
+            }
+        }
+
+        async function fetchUserData() {
+            try {
+                if (!token) throw new Error("No token available.");
+                const response = await fetch("http://45.81.145.100/user/api/index.php/api/user", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                });
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                const data = await response.json();
+                const username = data.data.firstname || "No username found";
+                document.getElementById("username-display").value = `Welcome, ${username}`;
+            } catch (error) {
+                console.error("Error fetching user data:", error.message);
+                document.getElementById("username-display").value = "Error fetching user data.";
+            }
+        }
+
+        async function fetchProfile() {
+            try {
+                const response = await fetch("http://45.81.145.100/user/api/index.php/api/service", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                });
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                const data = await response.json();
+                const profile = data.data.profile_name || "No profile found";
+                document.getElementById("profile-display").value = `Profile: ${profile}`;
+            } catch (error) {
+                console.error("Error fetching profile:", error.message);
+                document.getElementById("profile-display").value = "Error fetching profile.";
+            }
+        }
+
+        async function fetchRemainingDays() {
+            try {
+                const response = await fetch("http://45.81.145.100/user/api/index.php/api/dashboard", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                });
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                const data = await response.json();
+                const remainingDays = data.data.remaining_days;
+                document.getElementById("remaining-days-display").value = `Remaining Days: ${remainingDays} days`;
+
+                if (remainingDays > 0) {
+                    document.getElementById("active-status-display").style.display = "inline-block";
+                    document.getElementById("expire-status-display").style.display = "none";
+                } else {
+                    document.getElementById("active-status-display").style.display = "none";
+                    document.getElementById("expire-status-display").style.display = "inline-block";
+                }
+            } catch (error) {
+                console.error("Error fetching remaining days:", error.message);
+                document.getElementById("remaining-days-display").value = "Error fetching remaining days.";
+            }
+        }
+
+        document.getElementById("redeemButton").addEventListener("click", async function () {
+            const pin = document.getElementById("pin").value;
+            if (!pin) {
+                alert("Please enter a PIN!");
+                return;
+            }
+            try {
+                const formData = new FormData();
+                formData.append("pin", pin);
+                const response = await fetch("http://45.81.145.100/user/api/index.php/api/redeem", {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                    },
+                    body: formData,
+                });
+                if (!response.ok) throw new Error("Failed to redeem PIN.");
+                const data = await response.json();
+                alert(`Server Response: ${JSON.stringify(data)}`);
+            } catch (error) {
+                console.error("Error redeeming PIN:", error.message);
+                alert("Error redeeming PIN.");
+            }
+        });
+
+        window.addEventListener("load", fetchToken);
+
+        // Language Switcher
+        document.getElementById("language-select").addEventListener("change", function(event) {
+            changeLanguage(event.target.value);
+        });
+
+        function changeLanguage(language) {
+            const translations = {
+                engl: {
+                    "account-status": "Account Status :",
+                    "enter-pin-text": "Enter the PIN code, then click Recharge:"
+                },
+                arab: {
+                    "account-status": "حالة الحساب :",
+                    "enter-pin-text": "أدخل رمز الـ PIN، ثم اضغط على إعادة الشحن:"
+                },
+                kuba: {
+                    "account-status": "حەسابە کەسەکان :",
+                    "enter-pin-text": "کۆدی PIN بنووسە، پاشان کرتە بکە لەسەر شارەزە:"
+                },
+                kuso: {
+                    "account-status": "حەسابە کەسەکان :",
+                    "enter-pin-text": "کۆدی PIN بنووسە، پاشان کرتە بکە لەسەر شارەزە:"
+                }
+            };
+
+            // Update text content based on selected language
+            document.getElementById("account-status").textContent = translations[language]["account-status"];
+            document.getElementById("enter-pin-text").textContent = translations[language]["enter-pin-text"];
+        }
+    </script>
+</body>
+</html>

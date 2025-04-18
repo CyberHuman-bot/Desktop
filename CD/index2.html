@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON parse nonsense</title>
+</head>
+<body>
+    <h2>Convert a json obgect to a json string(We were meant to send to a server but we didnt)</h2>
+    <p id="donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera"></p>
+</body>
+<script>
+    var myObj = {name:"Yaman", age:9 , grade:5};
+    var donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera = JSON.stringify(myObj);
+    var why3 = JSON.parse(donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera);
+    document.getElementById("donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera").innerHTML = "my name is " + why3.name + " and i am a student in " + why3.grade +"th grade and i am " + why3.age+" years old";
+</script>
+</html>

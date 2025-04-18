@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+  border: 2px solid #808080;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 10px;
+  display: flex; /* Added */
+  flex-direction: column; /* Makes inputs stack */
+  justify-content: center; /* Centers content */
+  align-items: center; /* Centers content */
+}
+
+input {
+  border-radius: 10px;
+  border: #808080 1px solid;
+  margin: 5px;
+  padding: 12px;
+}
+button{
+    background-color: blueviolet;
+    border-radius: 10px;
+    color: ghostwhite;
+    border: none;
+    padding: 13px;
+}
+
+    </style>
+</head>
+<body>
+    <form>
+        <input type="email" placeholder="E-mail" id="email"><br>
+        <input type="password" placeholder="Password" minlength="8" id="password"><br>
+        <input type="number" placeholder="Age" min="18" id="age"><br>
+        <button type="submit">Submit</button>
+      </form>  
+      <br><p id="error"></p>
+</body>
+<script>
+function validate(e){
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+      const pass = document.getElementById("password").value;
+      const age = document.getElementById("age").value;
+      const msgBox = document.getElementById("error").value;
+    let message = '';
+    
+    if (email === ''){
+      message = 'Enter an email';
+      msgBox.style.color = 'red';
+    }
+      else if (pass === ''){
+      message = 'Password must contain 8 or more characters';
+      msgBox.style.color = 'red';
+    }
+        else if (age === ''){
+      message = 'Enter your age';
+      msgBox.style.color = 'red';
+    }
+        else {
+      message = 'Login succsesful';
+      msgBox.style.color = 'green';
+    }
+    msgBox.innerText = message;
+  }
+  </script>
+</html>

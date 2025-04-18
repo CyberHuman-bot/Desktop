@@ -1,0 +1,6 @@
+# YOS Configuration File
+system_name="YOS"
+default_browser="apps/browser/browser.py"
+default_network_tool="apps/internet/network.py"
+default_desktop="mnty"
+default_desktop_folder="mntu/YOSCONFIG/user_files/DSKTP.yfc"

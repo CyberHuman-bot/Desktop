@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS await / async</title>
+</head>
+<body>
+    <h2>this is how to use async and await</h2>
+    <h1 id="donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera"></h1>
+</body>
+<script>
+    async function add(a,b){
+        let donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera = await a + b;
+        display(donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera); 
+    }
+    function display(donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera){
+        document.getElementById("donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera").innerHTML = donotsendmyprivateinfoasanexamplewhencloudflarechecksmycamera;
+    }
+    add(657467465476576 , 98757465457465846);
+</script>
+</html>
